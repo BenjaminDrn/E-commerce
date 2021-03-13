@@ -1,0 +1,337 @@
+/*==================== FONTS GOOGLE ====================*/
+
+
+/*Roboto*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/*==================== VARIABLES CSS ====================*/
+
+:root {
+    /*HEADER HEIGHT*/
+    --header-height: 4.5rem;
+    /*FONT-SIZE*/
+    --f-size-h1: 25px;
+    --f-size-text: 15px;
+    --f-size-linkNav: 25px;
+    --f-size-icones: 28px;
+    /*COLORS*/
+    --first-color: #ffffff;
+    --second-color: #000000;
+    --third-color: #eeeeee;
+    --fourth-color: #808080;
+    /*Z-INDEX*/
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-important: 50;
+    --z-fixed: 100;
+    --z-loader: 150;
+}
+
+
+/* ==================== CLASSES GENERALES ==================== */
+
+*,
+ ::after,
+ ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: solid 1px #ececec;
+    background: #ececec;
+}
+
+
+/* ==================== Scrollbar ==================== */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* ==================== Loader ==================== */
+
+#loader {
+    width: 100%;
+    height: 100vh;
+    background: var(--first-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-loader);
+}
+
+#loader .bx-loader-alt {
+    animation: spin 1s linear infinite;
+    color: var(--fifth-color);
+    font-size: 50px;
+}
+
+
+/* ==================== HEADER ==================== */
+
+#header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--first-color);
+    /* box-shadow: 0 5px 10px rgba(70, 70, 70, 0.205); */
+    z-index: var(--z-fixed);
+}
+
+#header .nav__container {
+    width: 100%;
+    height: var(--header-height);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .nav__container .nav__brand a h1 {
+    font-size: var(--f-size-h1);
+    display: flex;
+    align-items: center;
+    color: var(--second-color);
+}
+
+#header .nav__container .nav__menu {
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    padding: 20px;
+    position: absolute;
+    top: var(--header-height);
+    left: -100%;
+    overflow: scroll;
+    background: var(--third-color);
+    transition: all 0.2s ease-in-out;
+}
+
+#header .nav__container .show {
+    left: 0%;
+}
+
+#header .nav__container .nav__menu .nav__list {
+    width: 100%;
+}
+
+#header .nav__container .nav__menu .nav__list .nav__item {
+    padding: 15px;
+}
+
+#header .nav__container .nav__menu .nav__list .nav__item .nav__link {
+    font-size: var(--f-size-linkNav);
+    color: var(--second-color);
+    text-transform: uppercase;
+}
+
+
+/* ==================== Icones de la barre de navigation ==================== */
+
+#header .nav__container .bx {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    font-size: var(--f-size-icones);
+    color: var(--second-color);
+    user-select: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#header .nav__container .nav__user {
+    display: none;
+}
+
+
+/* ======== Responsive Header + nav ======== */
+
+
+/* ==================== Panier ==================== */
+
+#shopping-bag {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background: var(--first-color);
+    z-index: var(--z-loader);
+    transition: all 0.2s ease-in-out
+}
+
+#shopping-bag .show {
+    right: 0%;
+}
+
+#shopping-bag .shopping__header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    outline: none;
+}
+
+#shopping-bag .shopping__header a .bx-x {
+    font-size: var(--f-size-icones);
+    color: var(--second-color);
+}
+
+#shopping-bag .shopping__previewBag {
+    width: 100%;
+    height: calc(100vh - 248px);
+    padding: 20px;
+    overflow: scroll;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 90px;
+    overflow: hidden;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    padding: 1px;
+    background: #ececec;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag img {
+    width: 80px;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos {
+    width: 100%;
+    margin-left: 20px;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosType {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosQtity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosQtity .title__quantity p {
+    font-size: 14px;
+    color: var(--fourth-color);
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosQtity .quantity {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosQtity .quantity p {
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+#shopping-bag .shopping__previewBag .shopping__articleBag .article__infos .article__infosQtity .quantity .bx {
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+#shopping-bag .shopping__buy {
+    width: 100%;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background: var(--third-color);
+}
+
+#shopping-bag .shopping__buy .shopping__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#shopping-bag .shopping__buy .shopping__price p {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--fourth-color);
+    /*808080*/
+}
+
+#shopping-bag .shopping__buy button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 30px;
+    background: var(--second-color);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    color: var(--first-color);
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+
+/* ==================== MAIN ==================== */
+
+main {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: var(--header-height);
+}
+
+
+/* @media screen and (min-width: 576px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 1200px) {} */
+
+
+/* @media screen and (min-width: 576px) {}
+
+@media screen and (min-width: 768px) {}
+
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 1200px) {}
